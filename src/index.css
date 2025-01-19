@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Nekst', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #FFFFFF;
+  background-color: #000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@font-face {
+  font-family: 'Nekst';
+  src: url('Nekst-SemiBold.eot');
+  src: local('Nekst Semi Bold'), local('Nekst-SemiBold'),
+      url('src/assets/Nekst-SemiBold.eot') format('embedded-opentype'),
+      url('src/assets/Nekst-SemiBold.woff2') format('woff2'),
+      url('src/assets/Nekst-SemiBold.woff') format('woff'),
+      url('src/assets/Nekst-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nekst';
+  src: url('Nekst-Regular.eot');
+  src: local('Nekst'), local('Nekst-Regular'),
+      url('src/assets/Nekst-Regular.eot') format('embedded-opentype'),
+      url('src/assets/Nekst-Regular.woff2') format('woff2'),
+      url('src/assets/Nekst-Regular.woff') format('woff'),
+      url('src/assets/Nekst-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nekst';
+  src: url('Nekst-Black.eot');
+  src: local('Nekst Black'), local('Nekst-Black'),
+      url('src/assets/Nekst-Black.eot') format('embedded-opentype'),
+      url('src/assets/Nekst-Black.woff2') format('woff2'),
+      url('src/assets/Nekst-Black.woff') format('woff'),
+      url('src/assets/Nekst-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nekst';
+  src: url('Nekst-Thin.eot');
+  src: local('Nekst Thin'), local('Nekst-Thin'),
+      url('src/assets/Nekst-Thin.eot') format('embedded-opentype'),
+      url('src/assets/Nekst-Thin.woff2') format('woff2'),
+      url('src/assets/Nekst-Thin.woff') format('woff'),
+      url('src/assets/Nekst-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nekst';
+  src: url('Nekst-Bold.eot');
+  src: local('Nekst Bold'), local('Nekst-Bold'),
+      url('src/assets/Nekst-Bold.eot') format('embedded-opentype'),
+      url('src/assets/Nekst-Bold.woff2') format('woff2'),
+      url('src/assets/Nekst-Bold.woff') format('woff'),
+      url('src/assets/Nekst-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nekst';
+  src: url('Nekst-Medium.eot');
+  src: local('Nekst Medium'), local('Nekst-Medium'),
+      url('src/assets/Nekst-Medium.eot') format('embedded-opentype'),
+      url('src/assets/Nekst-Medium.woff2') format('woff2'),
+      url('src/assets/Nekst-Medium.woff') format('woff'),
+      url('src/assets/Nekst-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nekst';
+  src: url('Nekst-Light.eot');
+  src: local('Nekst Light'), local('Nekst-Light'),
+      url('src/assets/Nekst-Light.eot') format('embedded-opentype'),
+      url('src/assets/Nekst-Light.woff2') format('woff2'),
+      url('src/assets/Nekst-Light.woff') format('woff'),
+      url('src/assets/Nekst-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+

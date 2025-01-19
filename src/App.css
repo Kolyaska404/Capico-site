@@ -1,0 +1,22 @@
+.cnt {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.exchange:hover{
+  background: linear-gradient(to bottom, #5A2FED, #8F00FF);
+  background-position: -1;
+  background-size: 110%;
+  box-shadow: 0 0 15px 2px #8F00FF;
+}
+
+.numbers_block {
+  position: relative;
+  width: 376px;
+  height: 292px;
+  background-image: url('/main_page/numbers_box_border_1.svg');
+  }
