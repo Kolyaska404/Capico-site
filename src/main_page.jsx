@@ -1,7 +1,10 @@
 import { useState } from "react"
+import { Button } from "./button"
+import Swiper from "swiper"
 import '/src/App.css'
 export function Main_page() {
     const [dropdown, setDropdown] = useState(false)
+    const [dropdown2, setDropdown2] = useState(false)
     return (
         <>
             <div className="w-full flex flex-col min-h-full mx-auto relative">
@@ -9,9 +12,15 @@ export function Main_page() {
                     <div className="cnt tablet:w-[834px] relative px-[27px] ">
                         <div className="flex justify-between items-center py-[15px]">
                             <img src="/main_page/logo.svg" alt="" />
-                            <button onClick={() => setDropdown(!dropdown)} className={`transition-colors flex items-center gap-x-4 text-[25px] ${dropdown ? 'text-white' : 'text-[#904BFF]'}`} >en {dropdown ? <img src="/main_page/dropdown_static.svg" alt="" /> : <img src="/main_page/dropdown_active.svg" alt="" /> }</button>
+                            <button onClick={() => setDropdown(!dropdown)} className={`transition-colors flex items-center 2xl:flex md:flex min-[350px]:hidden gap-x-4 text-[25px] ${dropdown ? 'text-white' : 'text-[#904BFF]'}`} >en {dropdown ? <img src="/main_page/dropdown_static.svg" alt="" /> : <img src="/main_page/dropdown_active.svg" alt="" /> }</button>
+                            <ul className={`bg-[#5F29B7] rounded-[20px] flex flex-col py-[15px] pl-[15px] pr-[15px] text-[25px] leading-[30px] font-light transition-opacity absolute top-[81px] left-[350px] ${dropdown ? 'opacity-0' : 'opacity-100'}`}>
+                                <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">en</a></li>
+                                <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">ru</a></li>
+                                <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">es</a></li>
+                                <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">cz</a></li>
+                            </ul>
                             <nav>
-                                <ul className="hidden gap-x-9 text-[25px] font-medium tablet:flex min-[350px]:hidden">
+                                <ul className="gap-x-9 text-[25px] font-medium 2xl:flex md:hidden min-[350px]:hidden">
                                     <li className="transition-colors hover:text-[#904BFF]"><a href="#">features</a></li>
                                     <li className="transition-colors hover:text-[#904BFF]"><a href="#">prices</a></li>
                                     <li className="transition-colors hover:text-[#904BFF]"><a href="#">partners</a></li>
@@ -19,8 +28,30 @@ export function Main_page() {
                                     <li className="transition-colors hover:text-[#904BFF]"><a href="#">academy</a></li>
                                 </ul>
                             </nav>
-                            <button className="bg-[#904BFF] pl-9 py-[15px] font-medium pr-6 flex items-center gap-x-4 text-[25px] rounded-[42px]">sign in<img src="/main_page/sign_in_arrow.svg" alt="" /></button>
-                            <button className="flex tablet:hidden"><img src="/main_page/menu.svg" alt="" /></button>
+                            <button className="bg-[#904BFF] pl-9 py-[15px] font-medium pr-6 flex items-center gap-x-4 text-[25px] rounded-[42px] 2xl:flex md:flex min-[350px]:hidden">sign in<img src="/main_page/sign_in_arrow.svg" alt="" /></button>
+                            <button className="tablet:flex 2xl:hidden z-10" onClick={() => setDropdown2(true)}><img src="/main_page/menu.svg" alt="" /></button>
+                            <div className={`z-20 absolute top-0 mx-auto right-0 left-0 w-screen ${dropdown2 ? 'flex' : 'hidden'} bg-black py-[24px] px-[28px] flex flex-col`}>
+                                <img className="absolute right-0 z-[-1]" src="/main_page/mobile_menu_bg.png" alt="" />
+                                <div className="flex justify-between mb-[50px]">
+                                    <img className="min-[350px]:w-[132px] min-[350px]:h-[28px] md:w-[263px] md:h-[56px]" src="/main_page/logo.svg" alt="" />
+                                    <button className="z-10" onClick={() => setDropdown2(false)}><img src="/main_page/X.svg" alt="" /></button>
+                                </div>
+                                <ul className="gap-x-9 text-[35px] leading-[60px] font-medium flex flex-col gap-y-[30px] text-center mb-[66px]">
+                                    <li className="transition-colors hover:text-[#904BFF]"><a href="#">features</a></li>
+                                    <li className="transition-colors hover:text-[#904BFF]"><a href="#">prices</a></li>
+                                    <li className="transition-colors hover:text-[#904BFF]"><a href="#">partners</a></li>
+                                    <li className="transition-colors hover:text-[#904BFF]"><a href="#">knowledge base</a></li>
+                                    <li className="transition-colors hover:text-[#904BFF]"><a href="#">academy</a></li>
+                                </ul>
+                                <button onClick={() => setDropdown2(!dropdown)} className="py-[18px] pl-[29px] pr-[22px] border-[1px] border-[#8A4CEF] rounded-[40px] mx-auto mb-[66px] transition-colors flex items-center gap-x-7 text-[25px]">en<img src="/main_page/dropdown_static.svg" alt="" /></button>
+                                <ul className={`bg-[#5F29B7] rounded-[20px] flex flex-col py-[15px] pl-[15px] pr-[15px] text-[25px] leading-[30px] font-light transition-opacity absolute top-[81px] left-[350px] z-20 ${dropdown2 ? 'opacity-0' : 'opacity-100'}`}>
+                                    <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">en</a></li>
+                                    <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">ru</a></li>
+                                    <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">es</a></li>
+                                    <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">cz</a></li>
+                                </ul>
+                                <button className="flex items-center justify-center py-[18px] rounded-[27px] gap-x-[69px] border-[#8A4CEF] border-[1px]">Sign up<img src="/main_page/sign_in_mobile.svg" alt="" /></button>
+                            </div>
                         </div>
                         <div className="mt-[100px] mb-[145px]">
                             <h1 className="text-[102px] font-medium w-[765px] leading-[98px] mb-[30px] bg-clip-text bg-gradient-to-b from-white to-[#8441F1] text-transparent">Crypto trading with bots and smart seals</h1>
@@ -36,7 +67,7 @@ export function Main_page() {
                                 <li className="bg-[#0E0915] w-[236px] h-[100px] flex items-center justify-center rounded-[30px] exchange transition-shadow relative"><img src="/main_page/okx.svg" alt="" /></li>
                                 <li className="bg-[#0E0915] w-[236px] h-[100px] flex items-center justify-center rounded-[30px] exchange transition-shadow relative">
                                     <img src="/main_page/bybit.svg" alt="" />
-                                    <div className="bg-[#6F42B8] p-[5px] rounded-[8px] text-[13px] leading-[14px] absolute top-[12px] right-[16px]">Soon</div>
+                                    <div className="bg-[#904bff] p-[5px] rounded-[8px] text-[13px] leading-[14px] absolute top-[12px] right-[16px]">Soon</div>
                                 </li>
                             </ul>
                         </div>
@@ -138,6 +169,7 @@ export function Main_page() {
                             <div className="px-[25px]">
                                 <img className="top-[44px] right-0 left-0 mx-auto absolute" src="/main_page/slider_line.svg" alt="" />
                                 <h3 className="text-[90px] font-medium leading-[92px] pt-[15px] pl-[15px] w-[958px] bg-clip-text bg-gradient-to-r from-white to-[#8441F1] text-transparent">Everything for your comfortable work</h3>
+                                swiper
                             </div>
                             <div className="bg-gradient-to-tr from-[#340E73] to-[#7061AA] rounded-[40px] px-[40px] pt-[50px] pb-[75px] text-white z-[1]">
                                 <div className="flex justify-between">
@@ -153,7 +185,7 @@ export function Main_page() {
                                     <p className="pt-[21px] text-[18px] leading-[18px] font-light text-[#8F889A]">All functionality is always at hand.</p>
                                 </div>
                                 <p className="text-[40px] leading-[48px] w-[470px] mb-[118px]">The service is fully adapted to work through a browser on your smartphone or tablet</p>
-                                <button className="mx-auto text-[45px] leading-[42px] font-semibold bg-[#904BFF] flex items-center py-[21px] pr-[21px] pl-[110px] rounded-[70px] gap-x-[74px]">Create an account<img src="/main_page/nhover_trade.svg" alt="" /></button>
+                                <Button text='Create an account'/>
                             </div>
                         </section>
                         <section className="relative py-[60px] px-[25px]">
@@ -224,7 +256,7 @@ export function Main_page() {
                         <section className="flex flex-col items-center pt-[163px] pb-[102px] relative">
                             <img className="absolute top-0 right-0 left-0 mx-auto z-[-1]" src="/main_page/main_bottom_bg.png" alt="" />
                             <h2 className="text-[100px] leading-[93px] w-[958px] text-center mb-[286px]">Try Capico for free per month</h2>
-                            <button className="mx-auto text-[45px] leading-[42px] font-semibold bg-[#904BFF] flex items-center py-[21px] pr-[21px] pl-[110px] rounded-[70px] gap-x-[74px]">Create an account<img src="/main_page/nhover_trade.svg" alt="" /></button>
+                            <Button text='Create an account'/>
                         </section>
                     </div>
                 </main>
@@ -238,33 +270,33 @@ export function Main_page() {
                             <li className="mr-[109px]">
                                 <p className="mb-[30px] w-[134px] text-[#8F889A] text-[17px] leading-[17px]">We are in social networks</p>
                                 <ul className="flex gap-x-[9px] mb-[70px]">
-                                    <li><img src="/main_page/facebook_purp.svg" alt="" /></li>
-                                    <li><img src="/main_page/facebook_wh.svg" alt="" /></li>
-                                    <li><img src="/main_page/Youtube.svg" alt="" /></li>
-                                    <li className="flex flex-col items-center gap-y-[7px]"><img src="/main_page/tg_white.svg" alt="" /> <span className="text-[10px] leading-[10px]">Chat</span></li>
-                                    <li className="flex flex-col items-center gap-y-[7px]"><img src="/main_page/tg-purple.svg" alt="" /> <span className="text-[10px] leading-[10px] text-[#8950E7]">Channel</span></li>
-                                    <li><img src="/main_page/Twitter.svg" alt="" /></li>
+                                    <li><a href=""><img src="/main_page/facebook_purp.svg" alt="" /></a></li>
+                                    <li><a href=""><img src="/main_page/facebook_wh.svg" alt="" /></a></li>
+                                    <li><a href=""><img src="/main_page/Youtube.svg" alt="" /></a></li>
+                                    <li className="flex flex-col items-center gap-y-[7px]"><a href=""><img src="/main_page/tg_white.svg" alt="" /> <span className="text-[10px] leading-[10px]">Chat</span></a></li>
+                                    <li className="flex flex-col items-center gap-y-[7px]"><a href=""><img src="/main_page/tg-purple.svg" alt="" /> <span className="text-[10px] leading-[10px] text-[#8950E7]">Channel</span></a></li>
+                                    <li><a href=""><img src="/main_page/Twitter.svg" alt="" /></a></li>
                                 </ul>
                                 <p>info@capico.app </p>
                             </li>
                             <li className="mr-[87px]">
                                 <h4 className="mb-[25px] text-[25px]">Documents</h4>
                                 <ul className="flex flex-col gap-y-[15px] text-[13px] leading-[13px] text-[#8F889A]">
-                                    <li>Terms of use</li>
-                                    <li>Privacy Policy</li>
-                                    <li>Referral Agreement</li>
+                                    <li><a href="">Terms of use</a></li>
+                                    <li><a href="">Privacy Policy</a></li>
+                                    <li><a href="">Referral Agreement</a></li>
                                 </ul>
                             </li>
                             <li className="mr-[116px]">
                                 <h4 className="mb-[25px] text-[25px]">Platform</h4>
                                 <ul className="flex flex-col gap-y-[15px] text-[13px] leading-[13px] text-[#8F889A]">
-                                    <li>Functions</li>
-                                    <li>Tariffs</li>
-                                    <li>Partners</li>
-                                    <li>Academy</li>
-                                    <li>Knowledge base</li>
-                                    <li>Popular questions</li>
-                                    <li>Jobs</li>
+                                    <li><a href="">Functions</a></li>
+                                    <li><a href="">Tariffs</a></li>
+                                    <li><a href="">Partners</a></li>
+                                    <li><a href="">Academy</a></li>
+                                    <li><a href="">Knowledge base</a></li>
+                                    <li><a href="">Popular questions</a></li>
+                                    <li><p href="">Jobs</p></li>
                                 </ul>
                             </li>
                             <li className="flex flex-col gap-y-[30px] text-[23px] leading-[23px]">
