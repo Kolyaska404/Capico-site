@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button } from "./button"
-import Swiper from "swiper"
+import { Slider_1 } from "./main_slider"
 import '/src/App.css'
 export function Main_page() {
     const [dropdown, setDropdown] = useState(false)
@@ -12,8 +12,8 @@ export function Main_page() {
                     <div className="cnt min-[350px]:max-w-[765px] md:max-w-[1535px] relative md:px-[] min-[350px]:px-[15px] px-[27px] ">
                         <div className="flex justify-between items-center py-[15px]">
                             <img src="/main_page/logo.svg" alt="" />
-                            <button onClick={() => setDropdown(!dropdown)} className={`transition-colors flex items-center 2xl:flex md:flex min-[350px]:hidden gap-x-4 text-[25px] ${dropdown ? 'text-white' : 'text-[#904BFF]'}`} >en {dropdown ? <img src="/main_page/dropdown_static.svg" alt="" /> : <img src="/main_page/dropdown_active.svg" alt="" /> }</button>
-                            <ul className={`min-[350px]:hidden bg-[#5F29B7] rounded-[20px] 2xl:flex flex-col py-[15px] pl-[15px] pr-[15px] text-[25px] leading-[30px] font-light transition-opacity absolute top-[81px] left-[350px] ${dropdown ? 'opacity-0' : 'opacity-100'}`}>
+                            <button onClick={() => setDropdown(!dropdown)} className={`transition-colors flex items-center 2xl:flex md:flex min-[350px]:hidden gap-x-4 text-[25px] ${dropdown ? 'text-[#904BFF]' : 'text-white'}`} >en {dropdown ? <img src="/main_page/dropdown_active.svg" alt="" /> : <img src="/main_page/dropdown_static.svg" alt="" /> }</button>
+                            <ul className={`min-[350px]:hidden bg-[#5F29B7] rounded-[20px] 2xl:flex flex-col py-[15px] pl-[15px] pr-[15px] text-[25px] leading-[30px] font-light transition-opacity absolute top-[81px] left-[350px] ${dropdown ? 'opacity-100' : 'opacity-0'}`}>
                                 <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">en</a></li>
                                 <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">ru</a></li>
                                 <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">es</a></li>
@@ -92,7 +92,7 @@ export function Main_page() {
                             </video>
                         </section>
                         <section className="relative 2xl:px-[40px] min-[350px]:px-[10px] mb-[72px] pt-[5px] bg-black">
-                            <div className="z-[1] absolute top-0 mx-auto right-0 left-0 2xl:bg-[url('/main_page/numbers_line.svg')] min-[350px]:bg-[url('/main_page/numbers_line_mobile.svg')] min-[350px]:w-[354px] min-[350px]:h-[31px]"></div>
+                            <div className="z-[1] absolute top-0 mx-auto right-0 left-0 2xl:bg-[url('/main_page/numbers_line.svg')] 2xl:w-[1550px] 2xl:h-[50px] min-[350px]:bg-[url('/main_page/numbers_line_mobile.svg')] min-[350px]:w-[354px] min-[350px]:h-[31px]"></div>
                             <div className="z-[1] relative flex justify-between items-center mb-[72px]">
                                 <h3 className="2xl:text-[60px] font-medium 2xl:leading-[59px] min-[350px]:text-[38px] min-[350px]:leading-[35px] min-[350px]:pl-[9px]">numbers</h3>
                                 <p className="2xl:block min-[350px]:hidden text-[15px] leading-[15px] text-[#6E647D]">Manage positions on </p>
@@ -120,7 +120,7 @@ export function Main_page() {
                             <img className="absolute 2xl:top-0 min-[350px]:top-[295px] 2xl:scale-100 min-[350px]:scale-[2] mx-auto right-0 left-0 z-[0]" src="/main_page/numbers_bg.png" alt="" />
                         </section>
                         <section className="relative mt-[50px] 2xl:px-[42px] min-[350px]:px-[10px] pt-[22px] pb-[222px]">
-                            <img className="absolute top-0 mx-auto right-0 left-0" src="/main_page/numbers_line.svg" alt="" />
+                            <div className="z-[1] absolute top-0 mx-auto right-0 left-0 2xl:bg-[url('/main_page/numbers_line.svg')] 2xl:w-[1550px] 2xl:h-[50px] min-[350px]:bg-[url('/main_page/numbers_line_mobile.svg')] min-[350px]:w-[354px] min-[350px]:h-[31px]"></div>
                             <div className="flex justify-between items-center mb-[72px]">
                                 <h3 className="text-[60px] font-medium leading-[59px]">benefits</h3>
                                 <p className="text-[15px] leading-[15px] text-[#6E647D]">Manage positions on </p>
@@ -164,10 +164,10 @@ export function Main_page() {
                             <img src="/main_page/gra.png" className=" absolute bottom-[-1100px] z-[0] right-0 left-0 mx-auto rounded-full blur-[350px]"></img>
                         </section>
                         <section className="relative z-[1] bg-black rounded-t-[40px] pt-[44px]">
-                            <div className="2xl:px-[25px] min-[350px]:px-[10px]">
+                            <div className="2xl:px-[25px] min-[350px]:px-[10px] overflow-hidden">
                                 <img className="top-[44px] right-0 left-0 mx-auto absolute" src="/main_page/slider_line.svg" alt="" />
                                 <h3 className="text-[90px] font-medium leading-[92px] pt-[15px] pl-[15px] w-[958px] bg-clip-text bg-gradient-to-r from-white to-[#8441F1] text-transparent">Everything for your comfortable work</h3>
-                                swiper
+                                <Slider_1 />
                             </div>
                             <div className="bg-gradient-to-tr from-[#340E73] to-[#7061AA] rounded-[40px] 2xl:px-[40px] min-[350px]:px-[10px] pt-[50px] pb-[75px] text-white z-[1]">
                                 <div className="flex justify-between">
