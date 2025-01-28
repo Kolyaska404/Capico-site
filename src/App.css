@@ -20,3 +20,8 @@
   height: 292px;
   background-image: url('/main_page/numbers_box_border_1.svg');
   }
+
+.active_slide {
+  background-color: #6D45B9;
+  border: 2px solid transparent;
+}

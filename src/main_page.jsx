@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Button } from "./button"
 import { Slider_1 } from "./main_slider"
+import { Slider_2 } from "./main_slider_2"
 import '/src/App.css'
 export function Main_page() {
     const [dropdown, setDropdown] = useState(false)
@@ -169,11 +170,12 @@ export function Main_page() {
                                 <h3 className="text-[90px] font-medium leading-[92px] pt-[15px] pl-[15px] w-[958px] bg-clip-text bg-gradient-to-r from-white to-[#8441F1] text-transparent">Everything for your comfortable work</h3>
                                 <Slider_1 />
                             </div>
-                            <div className="bg-gradient-to-tr from-[#340E73] to-[#7061AA] rounded-[40px] 2xl:px-[40px] min-[350px]:px-[10px] pt-[50px] pb-[75px] text-white z-[1]">
+                            <div className="bg-gradient-to-tr from-[#340E73] to-[#7061AA] rounded-[40px] 2xl:px-[40px] min-[350px]:px-[10px] pt-[50px] pb-[75px] text-white z-[1] relative">
                                 <div className="flex justify-between">
                                     <h3 className="text-[70px] leading-[65px] font-semibold">features</h3>
                                     <p className="text-[15px] leading-[15px] ">Manage positions on </p>
                                 </div>
+                                <Slider_2/>
                             </div>
                             <div className="relative pt-[71px] 2xl:px-[25px] min-[350px]:px-[10px] pb-[160px]">
                                 <img className="absolute mx-auto right-0 left-0" src="/main_page/trade_line.svg" alt="" />

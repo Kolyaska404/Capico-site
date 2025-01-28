@@ -1,5 +1,4 @@
-import { Children } from "react"
-import { act, useState } from "react"
+import { useState } from "react"
 export function Slider_1() {
     const [activeID, setActiveID] = useState(0)
     const list = [
@@ -65,6 +64,10 @@ export function Slider_1() {
                     </li>
                 ))}
             </ul>
+            <div className="flex items-center mb-[141px] ml-[165px]">
+                <div className={`w-[621px] h-[5px] transition-all  ${activeID > 0 ? 'bg-transparent' : 'bg-[#402E5C]'}`}></div>
+                <div className={`w-[621px] h-[5px] transition-all  ${activeID > 0 ? 'bg-[#402E5C]' : 'bg-transparent'}`}></div>
+            </div>
         </>
     )
 }
