@@ -2,25 +2,29 @@ import { useState } from "react"
 import { Button } from "./button"
 import { Slider_1 } from "./main_slider"
 import { Slider_2 } from "./main_slider_2"
+import { Sign_in_out } from "./sign_in_out"
+import { Footer } from "./footer"
 import '/src/App.css'
 export function Main_page() {
     const [dropdown, setDropdown] = useState(false)
     const [dropdown2, setDropdown2] = useState(false)
+    const [sign, setSign] = useState(false)
     return (
         <>
             <div className="w-full flex flex-col min-h-full mx-auto relative">
-                <header>
+                <header className="transition-all relative">
                     <div className="cnt min-[350px]:max-w-[765px] md:max-w-[1535px] relative md:px-[] min-[350px]:px-[15px] px-[27px] ">
-                        <div className="flex justify-between items-center py-[15px]">
+                    {sign ? <Sign_in_out setSign={setSign}/> : ''}
+                        <div className="flex justify-between items-center py-[13px]">
                             <img src="/main_page/logo.svg" alt="" />
-                            <button onClick={() => setDropdown(!dropdown)} className={`transition-colors flex items-center 2xl:flex md:flex min-[350px]:hidden gap-x-4 text-[25px] ${dropdown ? 'text-[#904BFF]' : 'text-white'}`} >en {dropdown ? <img src="/main_page/dropdown_active.svg" alt="" /> : <img src="/main_page/dropdown_static.svg" alt="" /> }</button>
+                            <button onClick={() => setDropdown(!dropdown)} className={`z-20 transition-colors flex items-center 2xl:flex md:flex min-[350px]:hidden gap-x-4 text-[25px] ${dropdown ? 'text-[#904BFF]' : 'text-white'}`} >en {dropdown ? <img src="/main_page/dropdown_active.svg" alt="" /> : <img src="/main_page/dropdown_static.svg" alt="" /> }</button>
                             <ul className={`min-[350px]:hidden bg-[#5F29B7] rounded-[20px] 2xl:flex flex-col py-[15px] pl-[15px] pr-[15px] text-[25px] leading-[30px] font-light transition-opacity absolute top-[81px] left-[350px] ${dropdown ? 'opacity-100' : 'opacity-0'}`}>
                                 <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">en</a></li>
                                 <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">ru</a></li>
                                 <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">es</a></li>
                                 <li className="hover:bg-[#7641CD] transition-colors w-full rounded-[5px] pl-[12px] pr-[40px] pb-[5px]"><a href="">cz</a></li>
                             </ul>
-                            <nav>
+                            <nav className={`${sign ? 'opacity-0' : ''}`}>
                                 <ul className="gap-x-9 text-[25px] font-medium 2xl:flex md:hidden min-[350px]:hidden">
                                     <li className="transition-colors hover:text-[#904BFF]"><a href="#">features</a></li>
                                     <li className="transition-colors hover:text-[#904BFF]"><a href="#">prices</a></li>
@@ -29,7 +33,7 @@ export function Main_page() {
                                     <li className="transition-colors hover:text-[#904BFF]"><a href="#">academy</a></li>
                                 </ul>
                             </nav>
-                            <button className="bg-[#904BFF] pl-9 py-[15px] font-medium pr-6 flex items-center gap-x-4 text-[25px] rounded-[42px] 2xl:flex md:flex min-[350px]:hidden">sign in<img src="/main_page/sign_in_arrow.svg" alt="" /></button>
+                            <button onClick={() => setSign(true)} className={`${sign ? 'opacity-0' : ''} bg-[#904BFF] pl-9 py-[15px] font-medium pr-6 flex items-center gap-x-4 text-[25px] rounded-[42px] 2xl:flex md:flex min-[350px]:hidden`}>sign in<img src="/main_page/sign_in_arrow.svg" alt="" /></button>
                             <button className="tablet:flex 2xl:hidden z-10" onClick={() => setDropdown2(true)}><img src="/main_page/menu.svg" alt="" /></button>
                             <div className={`z-20 absolute top-0 mx-auto right-0 left-0 w-screen  transition-all ${dropdown2 ? 'flex' : 'hidden'} bg-black py-[24px] px-[28px] flex flex-col`}>
                                 <img className="absolute right-0 z-[-1]" src="/main_page/mobile_menu_bg.png" alt="" />
@@ -54,11 +58,11 @@ export function Main_page() {
                                 <button className="flex mx-[20px] items-center justify-center py-[18px] rounded-[27px] gap-x-[69px] border-[#8A4CEF] border-[1px]">Sign up<img src="/main_page/sign_in_mobile.svg" alt="" /></button>
                             </div>
                         </div>
-                        <div className="min-[350px]:mt-[340px] min-[350px]:mb-[67px] mt-[100px] 2xl:mb-[145px]">
+                        <div className={`${sign ? 'hidden' : ''} min-[350px]:mt-[340px] min-[350px]:mb-[67px] 2xl:mt-[100px] 2xl:mb-[145px]`}>
                             <h1 className="md:text-[85px] md:leading-[81px] md:w-[638px] min-[350px]:text-[56px] min-[350px]:leading-[56px] min-[350px]:w-[400px] text-[102px] font-medium w-[765px] leading-[98px] mb-[30px] bg-clip-text bg-gradient-to-b from-white to-[#8441F1] text-transparent">Crypto trading with bots and smart seals</h1>
-                            <button className="min-[350px]:w-full min-[350px]:text-[19px] min-[350px]:leading-[18px] 2xl:w-[324px] py-[25px] pl-[60px] pr-[22px] text-[28px] 2xl:leading-[26px] font-semibold bg-[#904BFF] rounded-[50px] flex gap-x-[25px] items-center justify-center">Sign up now <img className="2xl:w-[50px]" src="/main_page/sign_in_arrow.svg" alt="" /></button>
+                            <button onClick={() => setSign(true)} className="min-[350px]:w-full min-[350px]:text-[19px] min-[350px]:leading-[18px] 2xl:w-[324px] py-[25px] pl-[60px] pr-[22px] text-[28px] 2xl:leading-[26px] font-semibold bg-[#904BFF] rounded-[50px] flex gap-x-[25px] items-center justify-center">Sign up now <img className="2xl:w-[50px]" src="/main_page/sign_in_arrow.svg" alt="" /></button>
                         </div>
-                        <div className="mb-[63px] z-[2]">
+                        <div className={`mb-[63px] z-[2] ${sign ? 'hidden' : ''}`}>
                             <p className="min-[350px]:text-[18px] min-[350px]:leading-[21px] min-[350px]:w-[242px] mb-[27px] 2xl:text-[30px] 2xl:leading-[34px] 2xl:w-[397px] font-semibold">Trade for free on your favorite exchanges</p>
                             <ul className="min-[350px]:grid min-[350px]:grid-cols-2 min-[350px]:grid-rows-3 2xl:flex min-[350px]:gap-y-[10px] min-[350px]:gap-x-[10px] 2xl:gap-x-[13px] md:grid-cols-3 md:grid-rows-2 md:gap-[15px]">
                                 <li className="bg-[#0E0915] min-[350px]:w-[170px] min-[350px]:h-[67px] 2xl:w-[236px] 2xl:h-[100px] md:w-[249px] md:h-[105px] flex items-center justify-center min-[350px]:rounded-[20px] 2xl:rounded-[30px] exchange transition-shadow relative"><img src="/main_page/binance_1.svg" alt="" /></li>
@@ -72,18 +76,18 @@ export function Main_page() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="md:hidden min-[350px]:hidden 2xl:block absolute bottom-1/2 right-[40px] rounded-full group transition-opacity p-[33px]">
+                        <div className={`${sign ? 'opacity-0' : ''} md:hidden min-[350px]:hidden 2xl:block absolute bottom-1/2 right-[40px] rounded-full group transition-opacity p-[33px]`}>
                             <div className="bg-transparent transition-colors group-hover:bg-[#904BFF] delay-100 ease-in-out rounded-full border-[1px] border-[#904BFF] w-[83px] h-[83px] relative after:absolute after:border-[1px] after:border-[#8854DD] after:animate-ping after:w-[83px] after:h-[83px] after:rounded-full">
                                 <img className="absolute bottom-[33px] right-0 left-0 mx-auto w-[15px] h-[55px]" src="/main_page/header_arrow_bottom.svg" alt="" />
                             </div>
                         </div>
                         <div className="w-[1000px] h-[300px] bg-[#904bff] absolute bottom-[-200px] rounded-l-2xl blur-[260px] right-[-60px] z-[1]"></div>
-                        <video className="outline-none absolute z-[-1] 2xl:top-[10px] 2xl:mx-auto 2xl:left-0 2xl:right-0 md:w-[1000px] md:left-[-100px] md:scale-[2.5] min-[350px]:left-[-350px] min-[350px]:scale-[3] min-[350px]:top-[-340px] w-screen h-[1130px]" autoPlay muted loop>
-                            <source className="scale-150" src="/main_page/header_video.mp4" type="video/mp4"/>
+                        <video className="outline-none absolute z-[-1] 2xl:top-[175px] 2xl:mx-auto 2xl:left-0 2xl:right-0 md:w-full md:left-[-100px] md:bottom-0 md:scale-[1.5] min-[350px]:left-[-350px] min-[350px]:scale-[3] min-[350px]:top-[-340px] 2xl:w-screen 2xl:h-[780px] 2xl:scale-[1]" autoPlay muted loop>
+                            <source src="/main_page/header_video.mp4" type="video/mp4"/>
                         </video>
                     </div>
                 </header>
-                <main className="z-[1] relative">
+                <main className={`${sign ? 'hidden' : ''} z-[1] relative`}>
                     <div className="cnt min-[350px]:max-w-[765px] md:max-w-[1024px]">
                         <section className="flex flex-col items-center pt-[73px] rounded-t-[40px] bg-black 2xl:px-[27px] min-[350px]:px-[10px]">
                             <h2 className="2xl:text-[70px] 2xl:leading-[80px] min-[350px]:text-[24px] min-[350px]:leading-[30px] min-[350px]:w-[297px] 2xl:w-[1030px] md:w-[741px] md:text-[50px] md:leading-[57px] bg-clip-text bg-gradient-to-r from-white to-[#8441F1] text-transparent w-[1020px] font-[300] text-center ">Manage positions on
@@ -260,52 +264,7 @@ export function Main_page() {
                         </section>
                     </div>
                 </main>
-                <footer className="relative z-[1]">
-                    <div className="cnt px-[53px] rounded-t-[40px] bg-[#171022] pt-[36px] pb-[70px]">
-                        <ul className="2xl:flex md:grid md:grid-rows-2 md:grid-cols-2">
-                            <li className="mr-[155px]">
-                                <img className="mb-[159px]" src="/main_page/logo.svg" alt="" />
-                                <p className="text-[#8F889A] text-[17px] leading-[17px]">© 2022 Capico ltd.</p>
-                            </li>
-                            <li className="mr-[109px]">
-                                <p className="mb-[30px] w-[134px] text-[#8F889A] text-[17px] leading-[17px]">We are in social networks</p>
-                                <ul className="flex gap-x-[9px] mb-[70px]">
-                                    <li><a href=""><img src="/main_page/facebook_purp.svg" alt="" /></a></li>
-                                    <li><a href=""><img src="/main_page/facebook_wh.svg" alt="" /></a></li>
-                                    <li><a href=""><img src="/main_page/Youtube.svg" alt="" /></a></li>
-                                    <li className="flex flex-col items-center gap-y-[7px]"><a href=""><img src="/main_page/tg_white.svg" alt="" /> <span className="text-[10px] leading-[10px]">Chat</span></a></li>
-                                    <li className="flex flex-col items-center gap-y-[7px]"><a href=""><img src="/main_page/tg-purple.svg" alt="" /> <span className="text-[10px] leading-[10px] text-[#8950E7]">Channel</span></a></li>
-                                    <li><a href=""><img src="/main_page/Twitter.svg" alt="" /></a></li>
-                                </ul>
-                                <p>info@capico.app </p>
-                            </li>
-                            <li className="mr-[87px]">
-                                <h4 className="mb-[25px] text-[25px]">Documents</h4>
-                                <ul className="flex flex-col gap-y-[15px] text-[13px] leading-[13px] text-[#8F889A]">
-                                    <li><a href="">Terms of use</a></li>
-                                    <li><a href="">Privacy Policy</a></li>
-                                    <li><a href="">Referral Agreement</a></li>
-                                </ul>
-                            </li>
-                            <li className="mr-[116px]">
-                                <h4 className="mb-[25px] text-[25px]">Platform</h4>
-                                <ul className="flex flex-col gap-y-[15px] text-[13px] leading-[13px] text-[#8F889A]">
-                                    <li><a href="">Functions</a></li>
-                                    <li><a href="">Tariffs</a></li>
-                                    <li><a href="">Partners</a></li>
-                                    <li><a href="">Academy</a></li>
-                                    <li><a href="">Knowledge base</a></li>
-                                    <li><a href="">Popular questions</a></li>
-                                    <li><p href="">Jobs</p></li>
-                                </ul>
-                            </li>
-                            <li className="flex flex-col gap-y-[30px] text-[23px] leading-[23px]">
-                                <a href="">Sign in</a>
-                                <a href="">Create an account</a>
-                            </li>
-                        </ul>
-                    </div>
-                </footer>
+                <Footer sign={sign} />
             </div>
         </>
     )

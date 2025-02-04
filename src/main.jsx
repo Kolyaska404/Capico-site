@@ -7,7 +7,7 @@ import { Sign_in_out } from './sign_in_out.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Sign_in_out/>
-    {/* <Main_page/> */}
+    {/* <Sign_in_out/> */}
+    <Main_page/>
   </StrictMode>,
 )
